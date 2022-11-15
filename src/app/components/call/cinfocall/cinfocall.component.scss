@@ -1,0 +1,27 @@
+.callinfodisp {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+ul {
+    list-style-type: none;
+}
+
+  span[contenteditable="true"] {
+    border: 0.1px solid blue;
+    border-radius: 5px;
+    padding: 0.3px;
+}
+li{
+    margin: 8px;
+}
+
+.disp{
+    display: flex;
+    flex-direction: row;
+    justify-content: end;
+    align-items: flex-start;
+}
+
+

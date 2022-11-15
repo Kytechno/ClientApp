@@ -1,0 +1,48 @@
+<div class="content-header">
+  <div class="container-fluid">
+    <div class="row mb-2">
+      <div class="col-sm-6">
+        <h1 class="m-0">Historique des appels entrants</h1>
+      </div>
+      <div class="col-sm-6">
+        <ol class="breadcrumb float-sm-right">
+          <li class="breadcrumb-item"><a href="#">Appels</a></li>
+          <li class="breadcrumb-item active">Historiques</li>
+        </ol>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="col-12 col-sm-12 connectedSortable">
+  <div class="card card-primary card-outline">
+    <div class="card-block">
+      <div class="table-responsive">
+        <table class="table mb-0 new-patient-table">
+          <thead>
+            <tr>
+                <th>Date et Heure</th>
+                <th>Numero Client</th>
+                <th>Nom Client</th>
+                <th>Numero Agent</th>
+                <th>Nom Agent</th>
+                <th>Motif</th>
+                <th>Status</th>
+            </tr>
+        </thead>
+          <tbody *ngFor="let history of histories">
+            <tr>
+              <td> {{history.dateHeure | date: 'dd/MM/yy à HH:mm:ss'}} </td>
+              <td> {{history.CustomerNumber}} </td>
+              <td> {{history.CustomerLastName}} {{history.CustomerFirstName}}</td>
+              <td> {{history.ExtensionNumber}} </td>
+              <td> {{history.AgentLastName}}  {{history.AgentFirstName}}</td>
+              <td> {{history.Motif}} </td>
+              <td> {{history.Status}} </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>

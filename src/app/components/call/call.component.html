@@ -1,0 +1,89 @@
+<div>
+  <div class="content-header">
+    <div class="container-fluid">
+      <div class="row mb-2">
+        <div class="col-sm-6">
+          <h1 class="m-0">Espace Agent</h1>
+        </div>
+        <div class="col-sm-6">
+          <ol class="breadcrumb float-sm-right">
+            <li class="breadcrumb-item"><a href="#">Appels</a></li>
+            <li class="breadcrumb-item active">Traitements</li>
+          </ol>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div *ngIf="showDashboard">
+    <app-calldashboard></app-calldashboard>
+  </div>
+
+<div *ngIf="showInfoCustomer">
+  <div class="col-12 col-sm-12 connectedSortable">
+    <div class="card card-primary card-outline">
+      <div class="card-body">
+         <div class="notifinh">
+                <h4><strong>Informations du client</strong></h4>
+            </div>
+            <div class="callinfodisp">
+                <div>
+                    <ul>
+                        <li>Numero Client: {{customer.CustomerNumber}} </li>
+                        <li>
+                            <span>Nom:  {{customer.LastName}} </span>
+                        </li>
+                        <li>
+                            <span>Prenoms: {{customer.FirstName}} </span>
+                        </li>
+                    </ul>
+                </div>
+                <div>
+                    <ul>
+                        <li>Numero compte: {{dataCustom.NumeroCompte}}</li>
+                        <li>Type de voiture: {{dataCustom.TypeVoiture}}</li>
+                        <li>Date de visite: {{dataCustom.DateVisiteTec}}</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="callbutton">
+            <div>
+                <button class="btn btn-primary" (click)="onCall($event)">Appeler</button>
+            </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container-fuild" *ngIf="showCallCard ">
+  <div class="col-12 col-sm-12 connectedSortable">
+    <div class="card card-primary card-outline card-outline-tabs">
+      <div class="card-header p-0 border-bottom-0">
+        <ul class="nav nav-tabs" role="tablist">
+          <li class="nav-item" *ngFor="let item of tabs, let index = index" >
+            <a class="nav-link {{item.state}} "  data-toggle="tab" href="#{{item.id}}">{{item.number}}</a>
+          </li>
+        </ul>
+      </div>
+      <div class="card-body">
+        <div class="tab-content">
+          <div *ngFor="let item of tabs, let index = index" id="{{item.id}}" class="container tab-pane {{item.viewstate}} "><br>
+            <app-infocall [call]="item.call"></app-infocall>
+            <app-cinfocall [CustomerNumber]="item.call.CustomerNumber" [events]="eventsSubject.asObservable()"></app-cinfocall>
+            <app-requestcall [call]="item.call" [events]="eventsSubject.asObservable()"></app-requestcall>
+            <app-historycall [call]="item.call"></app-historycall>
+            <div >
+              <div class="callbutton">
+                  <button class="btn btn-primary float-right" (click)="removeTab(index)">Fermer</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+

@@ -1,0 +1,32 @@
+<app-dropdown class="user-menu">
+    <ng-container dropdown-button>
+        <img
+            [src]="'assets/img/logo.png'"
+            class="user-image img-circle elevation-2"
+            alt="User Image"
+        />
+    </ng-container>
+    <ng-container dropdown-menu>
+        <li class="user-header bg-primary">
+            <img
+                [src]="'assets/img/logo.png'"
+                class="img-circle elevation-2"
+                alt="User Image"
+            />
+            <p>
+                <small>
+                    <span>Agent connecté</span>
+                </small>
+            </p>
+        </li>
+        <li class="user-body">
+            <div class="row">
+                <div class="col-4 text-center">
+                </div>
+                <div class="text-center">
+                    <a (click)="logout()" class="btn btn-default btn-flat ">Déconnexion</a>
+                </div>
+            </div>
+        </li>
+    </ng-container>
+</app-dropdown>

@@ -1,0 +1,30 @@
+<div>
+    <div class="notifinh">
+        <div>
+            <ul class="row">
+                <li class="col-sm-3"> <strong>{{call.typeCall}}</strong> </li>
+                <li class="col-sm-4"> ...<strong>{{state}}</strong>...</li>
+                <li class="col-sm-3"> <strong>Numro Client : {{call.CustomerNumber}}</strong> </li>
+            </ul>
+        </div>
+        
+    </div>
+
+    <div class="callbutton">
+        <div style="margin: 1%;" *ngIf="showButtonAppeler">
+            <button class="btn btn-primary">Appeler</button>
+        </div>
+        <div  style="margin: 1%;" *ngIf="showButtonDecrocher">
+            <button class="btn btn-primary" (click)="onAnswer()">Decrocher</button>
+        </div>
+        <div  style="margin: 1%;" *ngIf="showButtonRacrocher">
+            <button class="btn btn-primary" (click)="onDropCall()">Raccrocher</button>
+        </div>
+        <div  style="margin: 1%;" *ngIf="showButtonMiseGarde">
+            <button class="btn btn-primary" (click)="onHold()">Mise Garde</button>
+        </div>
+        <div  style="margin: 1%;" *ngIf="showButtonFinGarde">
+            <button class="btn btn-primary" (click)="onRetrieve()">Fin Garde</button>
+        </div>
+    </div>
+</div>

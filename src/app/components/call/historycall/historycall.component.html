@@ -1,0 +1,36 @@
+<div class="card card-primary card-outline">
+  <div class="card-body">
+    <div class="card"  style="margin: 1%;">
+      <div class="card-block">
+        <div class="table-responsive">
+          <table class="table mb-0 new-patient-table">
+            <thead>
+              <tr>
+                  <th>Date et Heure</th>
+                  <th>Numero Client</th>
+                  <th>Numero Agent</th>
+                  <th>Nom Agent</th>
+                  <th>Motif</th>
+                  <th>Status</th>
+              </tr>
+          </thead>
+            <tbody *ngFor="let history of histories; index as i">
+              <tr>
+                <td > {{history.dateHeure | date: 'dd/MM/yy à HH:mm:ss'}} </td>
+                <td> {{history.CustomerNumber}} </td>
+                <td> {{history.ExtensionNumber}} </td>
+                <td> {{history.AgentLastName}}  {{history.AgentFirstName}}</td>
+                <td> {{history.Motif}} </td>
+                <td> {{history.Status}} </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+

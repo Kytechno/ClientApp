@@ -1,0 +1,40 @@
+<div class="card card-primary card-outline">
+    <div class="card-body">
+        <div class="callinfodisp">
+            <div>
+                <h4><strong>Informations du client</strong></h4>
+            </div>
+        </div>
+        <div class="callinfodisp">
+            <div>
+                <ul>
+                    <li>Numero Client: {{customer.CustomerNumber}} </li>
+                    <li>
+                        <div class="disp">
+                            <div><span>Nom:</span></div>
+                            <div>
+                                <input type="text" class="form-control form-control-sm" (change)="onSaveCustomer($event)" name="LastName" [(ngModel)]="customer.LastName"/> 
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="disp">
+                            <div><span>Prenoms:</span></div>
+                            <div>
+                                <input type="text" class="form-control form-control-sm" (change)="onSaveCustomer($event)" name="FirstName" [(ngModel)]="customer.FirstName"/> 
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <div>
+                <ul>
+                    <li>Numero compte: {{dataCustom.NumeroCompte}}</li>
+                    <li>Type de voiture: {{dataCustom.TypeVoiture}}</li>
+                    <li>Date de visite: {{dataCustom.DateVisiteTec}}</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+  </div>
+
